@@ -1,0 +1,19 @@
+---
+- name: download wordpress
+  get_url: url="{{ WORDPRESS_URL }}"
+    dest=/tmp/wordpress.tar.gz
+
+- name: create www directory
+  file: path=/var/www/ state=directory owner=root group=root mode=0755
+
+- name: unzip wordpress file
+  unarchive: src=/tmp/wordpress.tar.gz
+    dest=/var/www copy=no
+
+- name: permission change wordpress directory
+  file: path=/var/www/wordpress/ owner=nginx group=nginx recurse=yes
+
+- name: restart nginx
+  systemd:
+    name: nginx.service
+    state: restarted
