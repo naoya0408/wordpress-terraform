@@ -1,12 +1,16 @@
 # wordpress-terraform
 
-## Run
+## terraformの実行
 * terraform
 ```
 % terraform init
 % terraform apply
 ```
-* ansible
+## hostsに作成されたEC2のパブリックIPを指定する
+```
+
+```
+## ansibleの実行
 ```
 % ansible-playbook -i hosts playbook.yml
 ```
