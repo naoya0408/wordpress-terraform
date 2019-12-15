@@ -8,5 +8,5 @@
 ```
 * ansible
 ```
-% ansible-playbook -i aws_ec2.yml playbook.yml
+% ansible-playbook -i hosts playbook.yml
 ```
